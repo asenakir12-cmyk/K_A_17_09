@@ -307,8 +307,12 @@
             justify-content: center;
         }
         
-        .color-pillar:hover {
-            flex: 3.5; /* Столбик расширяется при наведении */
+        /* Состояние при наведении (десктоп) и клике (мобильные) */
+        .color-pillar:hover, 
+        .color-pillar:active,
+        .color-pillar.active {
+            flex: 3.5;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         
         .color-name-inner {
@@ -319,8 +323,10 @@
             transition: opacity 0.3s ease 0.2s;
         }
         
-        .color-pillar:hover .color-name-inner {
-            opacity: 1; /* Показываем название при наведении */
+        .color-pillar:hover .color-name-inner, 
+        .color-pillar:active .color-name-inner,
+        .color-pillar.active .color-name-inner {
+            opacity: 1;
         }
 
          @media (max-width: 640px) {
@@ -556,8 +562,7 @@
     </section>
 
     <footer class="py-16 text-center border-t border-gray-100">
-        <p class="cursive text-4xl text-accent-red mb-2">С любовью, К & А</p>
-        <p class="text-gray-400 text-xs tracking-widest uppercase">2026 • Wedding Day</p>
+        <p class="cursive text-4xl text-accent-red mb-2">С любовью, Кирилл и Анна</p>
     </footer>
 
     <script>
@@ -567,6 +572,26 @@
             e.preventDefault();
             this.classList.add('hidden');
             document.getElementById('thankYouMessage').classList.remove('hidden');
+        });
+        // Улучшение работы дресс-кода на мобильных
+        const pillars = document.querySelectorAll('.color-pillar');
+        pillars.forEach(pillar => {
+            pillar.addEventListener('click', function(e) {
+                // Если этот столбик уже активен, закрываем его
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                } else {
+                    // Закрываем все остальные и открываем текущий
+                    pillars.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                e.stopPropagation();
+            });
+        });
+
+        // Закрытие при клике в любое другое место
+        document.addEventListener('click', () => {
+            pillars.forEach(p => p.classList.remove('active'));
         });
     </script>
 </body>
