@@ -928,32 +928,32 @@ input[type="radio"]:checked + .option-card {
         document.addEventListener('click', () => {
             pillars.forEach(p => p.classList.remove('active'));
         });
-        // Находим форму по ID
-    const surveyForm = document.getElementById('weddingSurvey');
-    const thanksMessage = document.getElementById('surveyThanks');
+        
+       AOS.init({ duration: 1000, once: true });
 
-    if (surveyForm) {
-        surveyForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Останавливаем перезагрузку страницы
+        const surveyForm = document.getElementById('weddingSurvey');
+        const thanksMessage = document.getElementById('surveyThanks');
+        const submitBtn = document.getElementById('submitBtn');
 
-            // Плавное исчезновение формы
-            this.style.transition = 'opacity 0.5s ease';
-            this.style.opacity = '0';
+        if (surveyForm) {
+            surveyForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'ОТПРАВКА...';
 
-            setTimeout(() => {
-                this.classList.add('hidden'); // Скрываем форму полностью
-                if (thanksMessage) {
-                    thanksMessage.classList.remove('hidden'); // Показываем "Спасибо"
-                    thanksMessage.style.opacity = '0';
-                    thanksMessage.style.transition = 'opacity 0.5s ease';
-                    // Плавное появление сообщения
-                    setTimeout(() => thanksMessage.style.opacity = '1', 10);
-                }
-            }, 500);
-            
-            // Здесь можно добавить код для отправки данных на почту или в Telegram
-        });
-    }
+                // Имитация задержки отправки
+                setTimeout(() => {
+                    this.style.transition = 'opacity 0.5s';
+                    this.style.opacity = '0';
+                    setTimeout(() => {
+                        this.classList.add('hidden');
+                        thanksMessage.classList.remove('hidden');
+                        thanksMessage.style.opacity = '0';
+                        setTimeout(() => thanksMessage.style.opacity = '1', 50);
+                    }, 500);
+                }, 1000);
+            });
+        }
     </script>
 </body>
 </html>
