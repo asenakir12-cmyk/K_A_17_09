@@ -25,6 +25,8 @@
             --color-ruby: #6C0B25;
             --color-olive: #64652A;
             --color-sage: #B5AD80;
+            --berry-gradient: linear-gradient(135deg, #722F37 0%, #a44a53 50%, #722F37 100%);
+            --glass-wine-gradient: linear-gradient(135deg, rgba(164, 74, 83, 0.8) 0%, rgba(114, 47, 55, 0.9) 100%);
         }
 
         body {
@@ -57,11 +59,7 @@ input[type="radio"]:checked + .option-card {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
     border-radius: 40px;
 }
-        :root {
-    --cool-berry-red: #722F37;
-    --berry-gradient: linear-gradient(135deg, #722F37 0%, #a44a53 50%, #722F37 100%);
-    --glass-wine-gradient: linear-gradient(135deg, rgba(164, 74, 83, 0.8) 0%, rgba(114, 47, 55, 0.9) 100%);
-}
+
 
 /* Карточка с эффектом стекла */
 .premium-form-card {
@@ -952,6 +950,11 @@ input[type="radio"]:checked + .option-card {
             pillars.forEach(p => p.classList.remove('active'));
         });
         
+        document.addEventListener('click', () => {
+            pillars.forEach(p => p.classList.remove('active'));
+        });
+
+        // Логика анкеты
         const surveyForm = document.getElementById('weddingSurvey');
         const thanksMessage = document.getElementById('surveyThanks');
         const submitBtn = document.getElementById('submitBtn');
@@ -962,7 +965,7 @@ input[type="radio"]:checked + .option-card {
                 submitBtn.disabled = true;
                 submitBtn.innerText = 'ОТПРАВКА...';
 
-                // Имитация задержки отправки
+                // Имитация задержки отправки (для теста)
                 setTimeout(() => {
                     this.style.transition = 'opacity 0.5s';
                     this.style.opacity = '0';
@@ -970,6 +973,7 @@ input[type="radio"]:checked + .option-card {
                         this.classList.add('hidden');
                         thanksMessage.classList.remove('hidden');
                         thanksMessage.style.opacity = '0';
+                        thanksMessage.style.transition = 'opacity 0.5s';
                         setTimeout(() => thanksMessage.style.opacity = '1', 50);
                     }, 500);
                 }, 1000);
