@@ -358,6 +358,25 @@
         .color-pillar.active .color-name-inner {
             opacity: 1;
         }
+        /* Контейнер для фото дресс-кода */
+            .dress-code-photos {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Центрирование по горизонтали */
+                align-items: center;    /* Центрирование по вертикали */
+                gap: 20px;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .dress-code-photos img {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
 
          @media (max-width: 640px) {
             .hero-section {
