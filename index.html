@@ -228,14 +228,16 @@
 
          @media (max-width: 640px) {
             .hero-section {
-                align-items: center; /* Центрируем на мобильных для удобства чтения */
-                text-align: center;
+                /* Теперь прижато влево и на мобильных */
+                align-items: flex-start; 
+                text-align: left;
             }
             .hero-content {
-                padding-left: 20px;
-                max-width: 100%;
+                /* Сохраняем небольшой отступ слева для мобильных */
+                padding-left: 10%;
+                max-width: 90%;
             }
-            .hero-section h1 { font-size: 5rem; }
+            .hero-section h1 { font-size: 4.5rem; }
             .mobile-title-break {
                 display: block;
                 line-height: 1.1;
