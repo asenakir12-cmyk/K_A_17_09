@@ -720,6 +720,57 @@
         </div>
     </div>
 </section>
+    <section class="pt-0 py-24 bg-white text-center">
+    <div class="max-w-4xl mx-auto p-4">
+    <!-- Основной контейнер карточки -->
+    <div class="relative overflow-hidden bg-white rounded-[40px] border border-gray-100 p-10 md:p-14 shadow-lg flex flex-col md:flex-row items-center gap-10">
+        
+        <!-- Декоративная буква на фоне (логотип/монограмма) -->
+        <div class="absolute -right-4 -bottom-4 font-serif text-[200px] text-[#C5A059] opacity-5 pointer-events-none italic select-none" style="font-family: 'Great Vibes', cursive;">
+            M
+        </div>
+
+        <!-- Блок с фотографией -->
+        <div class="relative w-44 h-44 flex-shrink-0 z-10">
+            <!-- Внешнее тонкое кольцо -->
+            <div class="absolute -inset-2 rounded-full border border-[#C5A059] opacity-20"></div>
+            <!-- Рамка фото -->
+            <div class="w-full h-full rounded-full border border-[#C5A059] p-1.5 bg-white overflow-hidden">
+                <!-- Путь к вашему фото -->
+                <img 
+                    src="photo6.jpg" 
+                    alt="Мариса" 
+                    class="w-full h-full object-cover rounded-full"
+                    onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400'"
+                >
+            </div>
+        </div>
+
+        <!-- Контентная часть -->
+        <div class="flex-1 text-center md:text-left z-10">
+            <!-- Имя (не жирное) -->
+            <h3 class="text-5xl text-[#461312] mb-6 italic font-normal tracking-wide" style="font-family: 'Noto Serif', serif;">
+                Мариса
+            </h3>
+            
+            <!-- Текст сообщения -->
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed font-light">
+                По всем вопросам Вы можете обращаться<br class="hidden md:block"> к нашему организатору!
+            </p>
+            
+            <!-- Контактные данные -->
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] text-[#C5A059] uppercase tracking-[0.3em] font-bold">
+                    Телефон для связи
+                </span>
+                <a href="tel:+79250104267" class="text-2xl text-[#461312] hover:text-[#C5A059] transition-colors duration-300 tracking-wider font-normal no-underline border-b border-transparent hover:border-[#C5A059] inline-block w-fit mx-auto md:mx-0" style="font-family: 'Noto Serif', serif;">
+                    8 925 010 42 67
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+         </section>
     <!-- RSVP -->
     <section class="pt-0 py-24 bg-white">
         <div class="container mx-auto px-4 max-w-lg">
