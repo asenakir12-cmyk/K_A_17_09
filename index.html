@@ -20,6 +20,11 @@
             --cool-taupe-brown: #5D4A44;
             --cool-emerald-green: #1A472A;
             --cool-pine-green: #2B3D2E;
+            --color-espresso: #2E1A0E;
+            --color-burgundy: #461312;
+            --color-ruby: #6C0B25;
+            --color-olive: #64652A;
+            --color-sage: #B5AD80;
         }
 
         body {
@@ -281,6 +286,42 @@
             background-color: var(--cool-berry-red);
             transform: translateY(-2px);
         }
+        .dresscode-palette {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 12px;
+            height: 400px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .color-pillar {
+            flex: 1;
+            height: 100%;
+            border-radius: 60px 60px 15px 15px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .color-pillar:hover {
+            flex: 3.5; /* Столбик расширяется при наведении */
+        }
+        
+        .color-name-inner {
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            opacity: 0; /* Название скрыто по умолчанию */
+            transition: opacity 0.3s ease 0.2s;
+        }
+        
+        .color-pillar:hover .color-name-inner {
+            opacity: 1; /* Показываем название при наведении */
+        }
 
          @media (max-width: 640px) {
             .hero-section {
@@ -454,6 +495,29 @@
                     <h3 class="serif text-2xl text-accent-red">Завершение вечера</h3>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-white text-center">
+    <h2 class="text-5xl text-accent-red mb-8">Дресс-код</h2>
+    <p class="mb-16 text-gray-600">Мы будем признательны, если вы выберете наряды в цветах нашей свадьбы:</p>
+    
+    <div class="dresscode-palette">
+        <div class="color-pillar" style="background-color: var(--color-espresso);">
+            <span class="color-name-inner">Espresso</span>
+        </div>
+        <div class="color-pillar" style="background-color: var(--color-burgundy);">
+            <span class="color-name-inner">Burgundy</span>
+        </div>
+        <div class="color-pillar" style="background-color: var(--color-ruby);">
+            <span class="color-name-inner">Ruby</span>
+        </div>
+        <div class="color-pillar" style="background-color: var(--color-olive);">
+            <span class="color-name-inner">Olive</span>
+        </div>
+        <div class="color-pillar" style="background-color: var(--color-sage);">
+            <span class="color-name-inner">Sage</span>
         </div>
     </div>
 </section>
