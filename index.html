@@ -387,6 +387,25 @@
                 gap: 8px;
                 padding: 0 20px; 
             }
+             /* Контейнер для фото дресс-кода */
+            .dress-code-photos {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Центрирование по горизонтали */
+                align-items: center;    /* Центрирование по вертикали */
+                gap: 20px;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .dress-code-photos img {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
              
         }
     </style>
@@ -559,7 +578,7 @@
         </div>
     </div>
     <!-- Контейнер для фото -->
-            <div class="dress-code-photos" id="dressCodePhotos">
+            <div class="dress-code-photos mt-12 justify-center" id="dressCodePhotos">
                 <img src="photo3.jpg" alt="[Стиль одежды 1]" data-aos="fade-up" onerror="handleImageError(this)">
                 <img src="photo5.jpg" alt="[Стиль одежды 2]" data-aos="fade-up" onerror="handleImageError(this)">
             </div>
