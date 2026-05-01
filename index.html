@@ -28,15 +28,15 @@
         }
 
         /* Главный экран */
-        .hero-section {
+         .hero-section {
             position: relative;
             height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Выравнивание по левому краю для контейнера */
             justify-content: center;
-            text-align: center;
+            text-align: left; /* Текст внутри тоже прижат влево */
             background-image: url('photo.jpg');
             background-size: cover; 
             background-position: center;
@@ -44,7 +44,7 @@
             background-color: #f3f3f3;
             image-rendering: -webkit-optimize-contrast;
         }
-
+        
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -52,12 +52,15 @@
             z-index: 1;
         }
 
+
         .hero-content {
             position: relative;
             z-index: 2;
             color: white;
-            padding: 0 20px;
+            padding-left: 10%; /* Смещение контента влево */
+            padding-right: 20px;
             text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            max-width: 80%;
         }
 
         .hero-initials {
@@ -223,7 +226,15 @@
             transform: translateY(-2px);
         }
 
-        @media (max-width: 640px) {
+         @media (max-width: 640px) {
+            .hero-section {
+                align-items: center; /* Центрируем на мобильных для удобства чтения */
+                text-align: center;
+            }
+            .hero-content {
+                padding-left: 20px;
+                max-width: 100%;
+            }
             .hero-section h1 { font-size: 5rem; }
             .mobile-title-break {
                 display: block;
