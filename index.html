@@ -306,7 +306,37 @@
             align-items: center;
             justify-content: center;
         }
+        /* 1. Линия должна всегда быть по центру */
+        .timeline-center::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--cool-emerald-green);
+            opacity: 0.2;
+            top: 0;
+            bottom: 0;
+            left: 50%; /* Всегда 50% */
+            margin-left: -1px;
+        }
         
+        /* 2. Точки (кружочки) всегда по центру */
+        .timeline-dot {
+            position: absolute;
+            left: 50%; /* Всегда по центру линии */
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--cool-emerald-green);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        /* 3. Ширина контента (блоков с текстом) */
+        .timeline-content {
+            width: 45%; /* Текст занимает чуть меньше половины ширины */
+            position: relative;
+        }
         /* Состояние при наведении (десктоп) и клике (мобильные) */
         .color-pillar:hover, 
         .color-pillar:active,
