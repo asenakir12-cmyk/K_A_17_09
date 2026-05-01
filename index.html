@@ -377,6 +377,58 @@
                 border-radius: 20px;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             }
+        /* Эффект жидкого стекла для карточек */
+        .modern-info-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 12px;
+            padding: 45px 35px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(114, 47, 55, 0.05);
+        }
+        
+        .modern-info-card:hover {
+            transform: translateY(-8px);
+            border-color: #C5A059; /* Золотой при наведении */
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 30px 60px -12px rgba(114, 47, 55, 0.15);
+        }
+        
+        /* Стили для иконок и текста внутри карточек */
+        .icon-box-premium {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 25px;
+            color: #461312; /* Винный цвет */
+            transition: all 0.5s ease;
+        }
+        
+        .modern-info-card:hover .icon-box-premium {
+            color: #C5A059;
+            transform: scale(1.1);
+        }
+        
+        .premium-divider {
+            width: 40px;
+            height: 1px;
+            background: #C5A059;
+            margin: 20px auto;
+            opacity: 0.3;
+            transition: width 0.5s ease;
+        }
+        
+        .modern-info-card:hover .premium-divider {
+            width: 80px;
+            opacity: 1;
+        }
 
          @media (max-width: 640px) {
             .hero-section {
@@ -611,7 +663,30 @@
             </div>
         </div>
 </section>
-    
+    <section class="pt-0 py-24" style="background: #ffffff;">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-2 block font-light">Полезная информация</span>
+            <h2 class="text-6xl text-[var(--cool-berry-red)] cursive">Памятка гостям</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <!-- Карточка 1 -->
+            <div class="modern-info-card" data-aos="fade-up">
+                <div class="icon-box-premium">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M12 2v20m-7-15h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2zM7 7c0-2.5 2-4.5 5-4.5s5 2 5 4.5" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-serif mb-2">Подарки</h3>
+                <div class="premium-divider"></div>
+                <p class="text-sm text-gray-500 font-light leading-relaxed">Ваше внимание — лучший подарок. Но если вы захотите сделать вклад в наш бюджет, мы будем искренне благодарны.</p>
+            </div>
+
+            <!-- Повторите структуру для остальных 3-х карточек (Вино, Комфорт, Погода) -->
+        </div>
+    </div>
+</section>
     <!-- RSVP -->
     <section class="pt-0 py-24 bg-white">
         <div class="container mx-auto px-4 max-w-lg">
