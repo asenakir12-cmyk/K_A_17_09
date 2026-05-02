@@ -921,6 +921,19 @@
                 }, 400);
             }, 1000);
         });
+        // Интерактив для палитры
+        const pillars = document.querySelectorAll('.color-pillar');
+        pillars.forEach(pillar => {
+            pillar.addEventListener('click', function(e) {
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                } else {
+                    pillars.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                e.stopPropagation();
+            });
+        });
     </script>
 </body>
 </html>
