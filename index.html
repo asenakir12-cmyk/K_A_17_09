@@ -39,40 +39,71 @@
 
 /* Карточка с эффектом стекла */
 .premium-form-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
-    border-radius: 40px;
-}
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+            border-radius: 40px;
+            /* Явные отступы для всех экранов */
+            padding: 4rem 3rem; 
+            margin: 0 auto;
+            width: 100%;
+        }
+   .info-highlight-box {
+            background-color: rgba(114, 47, 55, 0.03);
+            border-left: 3px solid var(--cool-berry-red);
+            padding: 1.25rem;
+            border-radius: 0 15px 15px 0;
+            font-family: 'Comfortaa', sans-serif;
+        }      
 
 /* Кнопка с эффектом стекла */
-.glass-btn {
-    background: var(--glass-wine-gradient);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.4s ease;
-}
+ .glass-btn {
+            background: var(--glass-wine-gradient);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            width: 100%;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(114, 47, 55, 0.15);
+        }
+
+        .glass-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(114, 47, 55, 0.25);
+        }
 
 /* Стиль вариантов ответа (шрифт Comfortaa) */
 .option-card {
-    font-family: 'Comfortaa', sans-serif;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 18px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
+            font-family: 'Comfortaa', sans-serif;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 0.85rem;
+        }
 
-/* Состояние при выборе */
-input[type="radio"]:checked + .option-card {
-    border-color: var(--cool-berry-red);
-    color: var(--cool-berry-red);
-    background: #fffafa;
-    box-shadow: inset 0 0 0 1px var(--cool-berry-red);
-}
+        input[type="radio"] { display: none; }
+        
+        input[type="radio"]:checked + .option-card {
+            background: #fffafa;
+            border-color: var(--cool-berry-red);
+            color: var(--cool-berry-red);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(114, 47, 55, 0.1);
+        }
 
         /* Главный экран */
          .hero-section {
@@ -342,9 +373,13 @@ input[type="radio"]:checked + .option-card {
             border-radius: 60px 60px 15px 15px;
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer;
+            position: relative;
+            z-index: 10;
+            -webkit-tap-highlight-color: transparent; /* Убирает синюю рамку на iOS */
             display: flex;
             align-items: center;
             justify-content: center;
+            touch-action: manipulation;
         }
         
         /* 1. Линия должна всегда быть по центру */
@@ -445,7 +480,7 @@ input[type="radio"]:checked + .option-card {
         }
         
         /* Стили для иконок и текста внутри карточек */
-        .icon-box-premium {
+        .icon-box- {
             width: 60px;
             height: 60px;
             margin-bottom: 25px;
@@ -453,12 +488,12 @@ input[type="radio"]:checked + .option-card {
             transition: all 0.5s ease;
         }
         
-        .modern-info-card:hover .icon-box-premium {
+        .modern-info-card:hover .icon-box- {
             color: #C5A059;
             transform: scale(1.1);
         }
         
-        .premium-divider {
+        .-divider {
             width: 40px;
             height: 1px;
             background: #C5A059;
@@ -467,7 +502,7 @@ input[type="radio"]:checked + .option-card {
             transition: width 0.5s ease;
         }
         
-        .modern-info-card:hover .premium-divider {
+        .modern-info-card:hover .-divider {
             width: 80px;
             opacity: 1;
         }
@@ -536,6 +571,9 @@ input[type="radio"]:checked + .option-card {
                 width: 100% !important;
                 margin: 0 auto !important;
             }
+             /* .premium-form-card { 
+                padding: 3rem 1.5rem; /* Уменьшаем на мобильных, но оставляем зазор */
+            } */
         }
     </style>
 </head>
@@ -730,29 +768,29 @@ input[type="radio"]:checked + .option-card {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Карточка 1 -->
             <div class="modern-info-card" data-aos="fade-up">
-                <div class="icon-box-premium">
+                <div class="icon-box-">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                         <path d="M20 12v10H4V12M2 7h20v5H2z M12 22V7 M12 7c-2.5 0-4.5-2-4.5-4.5S9.5 2 12 2s4.5 2 4.5 4.5S14.5 7 12 7z" />
                     </svg>
                 </div>
                 <h3 class="text-xl font-serif mb-2">Подарки</h3>
-                <div class="premium-divider"></div>
+                <div class="-divider"></div>
                 <p class="text-sm text-gray-500 font-light leading-relaxed">Мы будем рады любому вкладу в бюджет нашей молодой семьи.</p>
             </div>
             <!-- Карточка 2 -->
             <div class="modern-info-card" data-aos="fade-up">
-                <div class="icon-box-premium">
+                <div class="icon-box-">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                         <path d="M6 9V7a6 6 0 0112 0v2 M4 9h16l-2 11H6L4 9z M9 13a3 3 0 016 0 M12 9v4" />
                     </svg>
                 </div>
                 <h3 class="text-xl font-serif mb-2">Цветы</h3>
-                <div class="premium-divider"></div>
+                <div class="-divider"></div>
                 <p class="text-sm text-gray-500 font-light leading-relaxed">Мы очень ценим ваше желание подарить нам цветы, но в этот раз будем рады, если вы замените цветы на бутылочку алкоголя.</p>
             </div>
             <!-- Карточка 3 -->
             <div class="modern-info-card" data-aos="fade-up">
-                <div class="icon-box-premium">
+                <div class="icon-box-">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                         <path d="M3 17.5h18l-1.5-3.5h-5l-3.5-5.5h-5l-3 9z M6 13h4 M14 9l3 4.5 M21 17.5a1.5 1.5 0 01-1.5 1.5H4.5A1.5 1.5 0 013 17.5" />
                     </svg>
@@ -832,6 +870,8 @@ input[type="radio"]:checked + .option-card {
     <section class="pt-0 py-24 bg-white">
     <div class="container mx-auto px-4 max-w-3xl">
         <div class="premium-form-card" data-aos="fade-up">
+             <!-- <!-- Обертка с ограничением ширины для контента внутри карточки -->
+                <!-- <div class="max-w-md mx-auto"> --> -->
             <header class="text-center mb-10">
                 <h2 class="cursive text-5xl text-accent-red mb-4">Анкета гостя</h2>
                 <div class="berry-line"></div>
@@ -849,14 +889,14 @@ input[type="radio"]:checked + .option-card {
             <form id="weddingSurvey" class="space-y-12">
                 <!-- Поле ввода имени -->
                 <div class="space-y-4">
-                    <label class="block text-xs uppercase tracking-widest text-stone-500 font-bold">Ваше Имя и Фамилия</label>
+                    <label class="rounded-text text-xs uppercase tracking-widest text-stone-500 font-bold">Ваше Имя и Фамилия</label>
                     <input type="text" name="guest_name" required placeholder="Введите ваше имя" 
                         class="w-full bg-transparent border-b border-stone-300 p-3 focus:outline-none focus:border-accent-red transition-colors font-medium">
                 </div>
 
                 <!-- Присутствие -->
                 <div class="space-y-6">
-                    <p class="garamond text-2xl text-center italic">Планируете ли вы прийти на свадьбу?</p>
+                    <p class="rounded-text text-2xl text-center leading-relaxed">Планируете ли вы прийти на свадьбу?</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <label>
                             <input type="radio" name="presence" value="Да, с удовольствием" required>
@@ -871,7 +911,7 @@ input[type="radio"]:checked + .option-card {
 
                 <!-- Алкоголь -->
                 <div class="space-y-6">
-                    <p class="garamond text-2xl text-center italic">Какой алкоголь вы предпочитаете?</p>
+                    <p class="rounded-text text-2xl text-center leading-relaxed">Какой алкоголь вы предпочитаете?</p>
                     <div class="alcohol-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;">
                         <label><input type="radio" name="alcohol" value="Шампанское" required><div class="option-card">Шампанское</div></label>
                         <label><input type="radio" name="alcohol" value="Вино белое сухое"><div class="option-card">Вино белое сухое</div></label>
@@ -889,7 +929,7 @@ input[type="radio"]:checked + .option-card {
 
                 <!-- Еда -->
                 <div class="space-y-6">
-                    <p class="garamond text-2xl text-center italic">Что предпочитаете на горячее?</p>
+                    <p class="rounded-text text-2xl text-center leading-relaxed">Что предпочитаете на горячее?</p>
                     <div class="grid grid-cols-3 gap-4">
                         <label><input type="radio" name="food" value="Мясо" required><div class="option-card">Мясо</div></label>
                         <label><input type="radio" name="food" value="Рыба"><div class="option-card">Рыба</div></label>
@@ -921,6 +961,7 @@ input[type="radio"]:checked + .option-card {
     </footer>
 
     <script>
+        window.onload = function() {
         AOS.init({ duration: 1200, once: true });
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -928,50 +969,54 @@ input[type="radio"]:checked + .option-card {
             this.classList.add('hidden');
             document.getElementById('thankYouMessage').classList.remove('hidden');
         });
-        // Улучшение работы дресс-кода на мобильных
-        const pillars = document.querySelectorAll('.color-pillar');
-        pillars.forEach(pillar => {
-            pillar.addEventListener('click', function(e) {
-                // Если этот столбик уже активен, закрываем его
-                if (this.classList.contains('active')) {
-                    this.classList.remove('active');
-                } else {
-                    // Закрываем все остальные и открываем текущий
-                    pillars.forEach(p => p.classList.remove('active'));
-                    this.classList.add('active');
-                }
-                e.stopPropagation();
-            });
-        });
 
-        // Закрытие при клике в любое другое место
-        document.addEventListener('click', () => {
-            pillars.forEach(p => p.classList.remove('active'));
-        });
-        
-        const surveyForm = document.getElementById('weddingSurvey');
-        const thanksMessage = document.getElementById('surveyThanks');
-        const submitBtn = document.getElementById('submitBtn');
+ const pillars = document.querySelectorAll('.color-pillar');
 
-        if (surveyForm) {
-            surveyForm.addEventListener('submit', async function(e) {
+            function togglePillar(el, e) {
                 e.preventDefault();
-                submitBtn.disabled = true;
-                submitBtn.innerText = 'ОТПРАВКА...';
+                e.stopPropagation();
+                
+                if (el.classList.contains('active')) {
+                    el.classList.remove('active');
+                } else {
+                    pillars.forEach(p => p.classList.remove('active'));
+                    el.classList.add('active');
+                }
+            }
 
-                // Имитация задержки отправки
-                setTimeout(() => {
-                    this.style.transition = 'opacity 0.5s';
-                    this.style.opacity = '0';
-                    setTimeout(() => {
-                        this.classList.add('hidden');
-                        thanksMessage.classList.remove('hidden');
-                        thanksMessage.style.opacity = '0';
-                        setTimeout(() => thanksMessage.style.opacity = '1', 50);
-                    }, 500);
-                }, 1000);
+            pillars.forEach(pillar => {
+                // Добавляем и клик, и тач для надежности
+                pillar.addEventListener('click', function(e) { togglePillar(this, e); });
+                pillar.addEventListener('touchstart', function(e) { togglePillar(this, e); }, {passive: false});
             });
-        }
+
+            document.addEventListener('click', function() {
+                pillars.forEach(p => p.classList.remove('active'));
+            });
+            
+            // Фикс для тача на всем документе
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.closest('.color-pillar')) {
+                    pillars.forEach(p => p.classList.remove('active'));
+                }
+            }, {passive: true});
+
+            const form = document.getElementById('weddingSurvey');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const btn = document.getElementById('submitBtn');
+                    btn.disabled = true;
+                    btn.innerText = 'ОТПРАВКА...';
+
+                    setTimeout(() => {
+                        form.classList.add('hidden');
+                        document.getElementById('surveyThanks').classList.remove('hidden');
+                    }, 1000);
+                });
+            }
+            
+        };
     </script>
 </body>
 </html>
